@@ -1,9 +1,12 @@
 pipeline {
     agent any
 
-    stage("lint") {
-        steps {
-            echo 'Linting'
+    stages {
+        stage("lint") {
+            steps {
+                echo 'Linting'
+            }
         }
     }
+
 }
