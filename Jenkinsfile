@@ -1,10 +1,14 @@
 pipeline {
-    agent any
+    agent none
 
     stages {
         stage("lint") {
+            agent docker {
+                image 'hadolint/hadolint'
+                args 'cp Dockerfile /'
+            }
             steps {
-                echo 'Linting'
+                sh 'hadolint /Dockerfile'
             }
         }
     }
